@@ -3,8 +3,10 @@ package com.nick.software.link.linkcore.model;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Post extends BaseEntity{
@@ -22,6 +24,9 @@ public class Post extends BaseEntity{
 
     @ManyToOne
     private Account account;
+
+    @OneToMany
+    private Set<Comment> comments;
 
     public Post() {
     }
@@ -62,6 +67,14 @@ public class Post extends BaseEntity{
 
     public void setAccount(Account account) {
         this.account = account;
+    }
+
+    public Set<Comment> getComments() {
+        return comments;
+    }
+
+    public void setComments(Set<Comment> comments) {
+        this.comments = comments;
     }
 
     @Override
