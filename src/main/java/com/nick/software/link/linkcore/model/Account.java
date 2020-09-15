@@ -25,7 +25,7 @@ public class Account extends BaseEntity{
 
     @Size(min = 5, max = 40, message = "Length must be between 5 and 40.")
     @Email(regexp = "^([a-zA-Z0-9_\\-\\.]+)@([a-zA-Z0-9_\\-\\.]+)\\.([a-zA-Z]{2,5})$")
-    @Column(nullable = false)
+    @Column(unique = true, nullable = false)
     private String email;
 
     @Size(min = 10, max = 255, message = "Length must be between 10 and 255.")

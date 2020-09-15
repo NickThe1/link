@@ -18,7 +18,7 @@ public class AccountDetails extends BaseEntity {
     private String biography;
 
     @Size(min = 0, max = 300, message = "Length must be between 0 and 300.")
-    private Set<String> technologies;
+    private String technologies;
 
     @OneToMany
     private Set<Experience> experiences;
@@ -26,7 +26,7 @@ public class AccountDetails extends BaseEntity {
     public AccountDetails() {
     }
 
-    public AccountDetails(@Size(min = 5, max = 30, message = "Length must be between 5 and 30.") String phone, @Size(min = 5, max = 30, message = "Length must be between 5 and 30.") String currentPosition, @Size(min = 0, max = 300, message = "Length must be between 0 and 300.") String biography, @Size(min = 0, max = 300, message = "Length must be between 0 and 300.") Set<String> technologies) {
+    public AccountDetails(@Size(min = 5, max = 30, message = "Length must be between 5 and 30.") String phone, @Size(min = 5, max = 30, message = "Length must be between 5 and 30.") String currentPosition, @Size(min = 0, max = 300, message = "Length must be between 0 and 300.") String biography, @Size(min = 0, max = 300, message = "Length must be between 0 and 300.") String technologies) {
         this.phone = phone;
         this.currentPosition = currentPosition;
         this.biography = biography;
@@ -57,11 +57,11 @@ public class AccountDetails extends BaseEntity {
         this.biography = biography;
     }
 
-    public Set<String> getTechnologies() {
+    public String getTechnologies() {
         return technologies;
     }
 
-    public void setTechnologies(Set<String> technologies) {
+    public void setTechnologies(String technologies) {
         this.technologies = technologies;
     }
 
