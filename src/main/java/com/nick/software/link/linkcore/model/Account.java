@@ -2,10 +2,12 @@ package com.nick.software.link.linkcore.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Account extends BaseEntity{
@@ -32,6 +34,9 @@ public class Account extends BaseEntity{
 
     @OneToOne
     private AccountDetails accountDetails;
+
+    @OneToMany
+    private Set<Post> posts;
 
     public Account() {
     }
@@ -90,6 +95,14 @@ public class Account extends BaseEntity{
 
     public void setAccountDetails(AccountDetails accountDetails) {
         this.accountDetails = accountDetails;
+    }
+
+    public Set<Post> getPosts() {
+        return posts;
+    }
+
+    public void setPosts(Set<Post> posts) {
+        this.posts = posts;
     }
 
     @Override

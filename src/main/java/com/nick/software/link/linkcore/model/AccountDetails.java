@@ -65,6 +65,14 @@ public class AccountDetails extends BaseEntity {
         this.technologies = technologies;
     }
 
+    public Set<Experience> getExperiences() {
+        return experiences;
+    }
+
+    public void setExperiences(Set<Experience> experiences) {
+        this.experiences = experiences;
+    }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
