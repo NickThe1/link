@@ -2,6 +2,7 @@ package com.nick.software.link.linkcore.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.OneToOne;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Objects;
@@ -28,6 +29,9 @@ public class Account extends BaseEntity{
     @Size(min = 10, max = 255, message = "Length must be between 10 and 255.")
     @Column(nullable = false)
     private String password;
+
+    @OneToOne
+    private AccountDetails accountDetails;
 
     public Account() {
     }
@@ -78,6 +82,14 @@ public class Account extends BaseEntity{
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public AccountDetails getAccountDetails() {
+        return accountDetails;
+    }
+
+    public void setAccountDetails(AccountDetails accountDetails) {
+        this.accountDetails = accountDetails;
     }
 
     @Override
