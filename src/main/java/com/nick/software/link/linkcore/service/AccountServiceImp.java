@@ -30,7 +30,7 @@ public class AccountServiceImp {
         accountRepository.save(account);
     }
 
-    public void setReume(ResumeDTO resumeDTO){
+    public void setResume(ResumeDTO resumeDTO){
         Account account = ResumeMapper.INSTANCE.resumeDTOToAccount(resumeDTO);
 
     }
