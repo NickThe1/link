@@ -1,15 +1,15 @@
 package com.nick.software.link.linkcore.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.OneToMany;
-import javax.persistence.OneToOne;
+import com.nick.software.link.linkcore.model.graph.ResumeGraph;
+
+import javax.persistence.*;
 import javax.validation.constraints.Email;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
 
 @Entity
+@ResumeGraph
 public class Account extends BaseEntity{
     @Size(min = 5, max = 30, message = "Length must be between 5 and 30.")
     @Column(unique = true, nullable = false)
@@ -32,10 +32,10 @@ public class Account extends BaseEntity{
     @Column(nullable = false)
     private String password;
 
-    @OneToOne
+    @OneToOne(fetch = FetchType.LAZY)
     private AccountDetails accountDetails;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Post> posts;
 
     public Account() {

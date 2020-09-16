@@ -1,6 +1,7 @@
 package com.nick.software.link.linkcore.model;
 
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.OneToMany;
 import javax.validation.constraints.Size;
 import java.util.Objects;
@@ -20,7 +21,7 @@ public class AccountDetails extends BaseEntity {
     @Size(min = 0, max = 300, message = "Length must be between 0 and 300.")
     private String technologies;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.EAGER)
     private Set<Experience> experiences;
 
     public AccountDetails() {

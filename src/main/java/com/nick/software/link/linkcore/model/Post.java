@@ -1,9 +1,6 @@
 package com.nick.software.link.linkcore.model;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.ManyToOne;
-import javax.persistence.OneToMany;
+import javax.persistence.*;
 import javax.validation.constraints.Size;
 import java.util.Objects;
 import java.util.Set;
@@ -22,10 +19,10 @@ public class Post extends BaseEntity{
     @Column(nullable = false)
     private String article;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Account account;
 
-    @OneToMany
+    @OneToMany(fetch = FetchType.LAZY)
     private Set<Comment> comments;
 
     public Post() {

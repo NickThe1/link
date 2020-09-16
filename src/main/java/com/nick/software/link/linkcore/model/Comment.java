@@ -2,6 +2,7 @@ package com.nick.software.link.linkcore.model;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 import javax.validation.constraints.Size;
 import java.util.Objects;
@@ -12,7 +13,7 @@ public class Comment extends BaseEntity {
     @Column(nullable = false)
     private String text;
 
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private Account account;
 
     public Comment() {
