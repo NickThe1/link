@@ -1,5 +1,7 @@
 package com.nick.software.link.linkcore.model.graph;
 
+import com.nick.software.link.linkcore.model.AccountDetails;
+
 import javax.persistence.NamedAttributeNode;
 import javax.persistence.NamedEntityGraph;
 import javax.persistence.NamedSubgraph;
@@ -16,6 +18,7 @@ import javax.persistence.NamedSubgraph;
         subgraphs = {
                 @NamedSubgraph(
                         name = "resume-details",
+                        type = AccountDetails.class,
                         attributeNodes = {
                                 @NamedAttributeNode("phone"),
                                 @NamedAttributeNode("currentPosition"),

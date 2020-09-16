@@ -1,7 +1,9 @@
 package com.nick.software.link.linkcore.service;
 
 import com.nick.software.link.linkcore.dto.RegistrationDTO;
+import com.nick.software.link.linkcore.dto.ResumeDTO;
 import com.nick.software.link.linkcore.dto.mapper.RegistrationMapper;
+import com.nick.software.link.linkcore.dto.mapper.ResumeMapper;
 import com.nick.software.link.linkcore.model.Account;
 import com.nick.software.link.linkcore.repository.AccountRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -27,4 +29,10 @@ public class AccountServiceImp {
         Account account = RegistrationMapper.INSTANCE.registrationDTOToAccount(registrationDTO);
         accountRepository.save(account);
     }
+
+    public void setReume(ResumeDTO resumeDTO){
+        Account account = ResumeMapper.INSTANCE.resumeDTOToAccount(resumeDTO);
+
+    }
+
 }
